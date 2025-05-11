@@ -8,23 +8,25 @@
     <title>{% block title %} Base.css{% endblock title %}</title>
 
     {# bootstrap #}
-    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     {# css #}
-    <link rel="stylesheet" href=" {% static 'css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
 </head>
 <body>
     <header class="header sticky-top">
         <div class="header-container d-flex">
-            <navbar class="header-navbar pt-4">
-                <ul class="header-list" d-flex>
-                    <li><a href="/" class="nav-a" m-3>Home</a></li>
-                </ul>
-                <ul class="header-list" d-flex>
-                    <li><a href="#" class="nav-a" m-3>Shop</a></li>
+            <navbar class="header-nav pt-4">
+                <ul class="header-list d-flex">
+                    <li>
+                        <a href="/" class="nav-a m-3">Home</a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-a m-3">Shop</a>
+                    </li>
                 </ul>
             </navbar>
             <div class="header-logo">
-                <a href="/"><img src="{% static 'img/img-1' %}" alt="" class="heavy-logo"></a>
+                <a href="/"><img src="{% static 'img/img-1' %}" alt="no-photo-1" class="heavy-logo"></a>
             </div>
             <div class="header-profile">
                 <a href="#" class="m-3">Login</a>
@@ -35,10 +37,10 @@
         {% block content %}
         {% endblock content %}
     </div>
-    <img src="{% static 'img/img-2' %}" class="frame1" alt="">
-    <img src="{% static 'img/img-3' %}" class="frame2" alt="">
-    <img src="{% static 'img/img-4' %}" class="frame3" alt="">
-    <img src="{% static 'img/img-5' %}" class="frame4" alt="">
+    {% comment %} <img src="{% static 'img/img-2.jpg' %}" class="frame1" alt="photo-2">
+    <img src="{% static 'img/img-3.jpg' %}" class="frame2" alt="photo-3">
+    <img src="{% static 'img/img-4.jpg' %}" class="frame3" alt="photo-4">
+    <img src="{% static 'img/img-5.jpg' %}" class="frame4" alt="photo-5"> {% endcomment %}
 
     {# js for bootstrap #}
     <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
