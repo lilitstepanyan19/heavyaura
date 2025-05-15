@@ -5,6 +5,9 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
+
+    {% if products %} <p>bla</p> {% else %} <p>of</p> {% endif %}
+    
     <section class="home d-flex flex-column">
         <div class="home-title d-flex flex-column align-items-center">
             <a href="#" class="home-btn mt-4">All products</a>
@@ -31,6 +34,6 @@
             {% endfor %}    
         </div>
     </section>
-    <img src="{% static 'img/img-1' %}" alt="" class="logographic">
-    <img src="{% static 'img/img-2' %}" alt="" class="subtitle">
+    {% comment %} <img src="{% static 'img/img-1.jpg' %}" alt="" class="logographic">
+    <img src="{% static 'img/img-2.jpg' %}" alt="" class="subtitle"> {% endcomment %}
 {% endblock content %}

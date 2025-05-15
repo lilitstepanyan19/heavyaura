@@ -6,9 +6,12 @@
 {% endblock title %}
 
 {% block content %}
+
+    {% if product %} <p>bla</p> {{product}} {% else %} <p>of</p> {% endif %}
+
     <div class="detail-product d-flex">
         <div class="detail-img">
-            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/img-1' %}{% endif %}" alt="photo-1" class="detail-image">
+            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/img-1.jpg' %}{% endif %}" alt="photo-1" class="detail-image">
         </div>            
         <div class="detail-description">
             <h2>{{ product.name }}</h2>
