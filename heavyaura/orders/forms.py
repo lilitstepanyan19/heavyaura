@@ -1,11 +1,12 @@
 from django import forms
-from .models import Order
+from orders.models import Order
 
-
-class CreateOrderForm(forms.Form):
+class OrderCreatedForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = ["user", "first_name", "last_name", "email", "address", "postal_code", "city"]
+        fields = ["user", "first_name", "last_name", "email", "phone_number", 
+                  "address", "postal_code", "city"]
+
 
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop('request', None)
@@ -15,9 +16,10 @@ class CreateOrderForm(forms.Form):
             self.initial['last_name'] = self.request.user.last_name
             self.initial['email'] = self.request.user.email
 
+    
     def save(self, commit=True):
         order = super().save(commit=False)
         order.user = self.request.user
         if commit:
             order.save()
-        return order    
+        return order

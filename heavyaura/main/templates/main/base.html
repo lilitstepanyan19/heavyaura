@@ -21,7 +21,7 @@
                         <a href="/" class="nav-a m-3">Home</a>
                     </li>
                     <li>
-                        <a href="shop/" class="nav-a m-3">Shop</a>
+                        <a href="/shop" class="nav-a m-3">Shop</a>
                     </li>
                 </ul>
             </navbar>
@@ -29,8 +29,8 @@
                 <a href="/"><img src="{% static 'img/img-1' %}" alt="no-photo-1" class="heavy-logo"></a>
             </div>
             <div class="header-profile pt-2">
-                <a href="{% url "cart:cart_detail" %}"><img src="{% static '' %}" alt="korzina" class="grob"></a>
-                <a href="#" class="m-2">Login</a>
+                <a href="{% url "cart:cart_detail" %}"><img src="{% static 'img/img-1.' %}" alt="korzina" class="grob"></a>
+                <a href="{% url "users:login" %}" class="m-2">Login</a>
                 <p class="cart-quantity">
                     {% with cart_quantity=cart|length %}
                         {% if cart_quantity > 0 %}

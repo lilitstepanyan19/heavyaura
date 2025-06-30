@@ -1,5 +1,5 @@
-venv/
-.pylintrc
+.venv
+.pylintre
 __pycache__/
 
 .vscode

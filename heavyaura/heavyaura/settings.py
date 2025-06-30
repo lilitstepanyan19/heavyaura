@@ -89,6 +89,14 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'heavyaura',
+    #     'USER' : 'heavyaura',
+    #     'PASSWORD' : 'heavyaura',
+    #     'HOST' : 'localhost',
+    #     'PORT' : '5432',
+    # }
 }
 
 
@@ -146,3 +154,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 CART_SESSION_ID = 'cart'
+AUTH_USER_MODEL = 'users.User'

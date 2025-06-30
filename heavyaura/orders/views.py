@@ -1,17 +1,14 @@
-from django.shortcuts import redirect, render
-from django.urls import reverse_lazy
-from django.views.generic import FormView
-
+from django.shortcuts import render
+from orders.models import OrderItem
+from orders.forms import OrderCreatedForm
 from cart.cart import Cart
 
-from orders.forms import CreateOrderForm
-from orders.models import Order, OrderItem
 
 
 def create_order(request):
     cart = Cart(request)
     if request.method == 'POST':
-        form = CreateOrderForm(data=request.POST, request=request)
+        form = OrderCreatedForm(data=request.POST, request=request)
         if form.is_valid():
             order = form.save()
             for item in cart:
@@ -26,8 +23,7 @@ def create_order(request):
                  'form' : form}
             )
     else:
-        form = CreateOrderForm(request=request)
+        form = OrderCreatedForm(request=request)
     return render(request, 'order/created.html', 
                 {'order' : order,
-                 'form' : form}
-            )
+                 'form' : form})
