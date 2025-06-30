@@ -13,11 +13,13 @@ class Category(models.Model):
         verbose_name = 'category'
         verbose_name_plural = 'categories'
 
+    def __str__(self):
+        return self.name
+
     def get_absolute_url(self):
         return reverse("main:product_list_by_category", args=[self.slug])
     
-    def __str__(self):
-        return self.name
+
     
 class Product(models.Model):
     category = models.ForeignKey(Category,
@@ -34,8 +36,7 @@ class Product(models.Model):
     available = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    discount = models.DecimalField(default=0.00, max_digits=4,
-                                   decimal_places=2)
+    discount = models.DecimalField(default=0.00, max_digits=4, decimal_places=2)
     
     class Meta:
         ordering = ['name']

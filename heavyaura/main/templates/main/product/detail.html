@@ -7,8 +7,6 @@
 
 {% block content %}
 
-    {% if product %} <p>bla</p> {{product}} {% else %} <p>of</p> {% endif %}
-
     <div class="detail-product d-flex">
         <div class="detail-img">
             <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/img-1.jpg' %}{% endif %}" alt="photo-1" class="detail-image">
@@ -25,7 +23,14 @@
             {% else %}
                 <p class="price">Price: {{product.price}}</p>
             {% endif %}
-            <a href="#" class="card-btn d-flex align-items-center justify-content-center">Add to card</a>
+            <form action="{% url "cart:cart_add" product_id %}" class="qform" method="post">
+                <div class="cart_form">
+                    {{ cart_product_form }}
+                    {% csrf_token %}
+                </div>
+                <input type="submit" class="add-to-cart-btn" value="Add to cart">
+            </form>
+           {% comment %} <a href="#" class="card-btn d-flex align-items-center justify-content-center">Add to card</a> {% endcomment %}
         </div>
     </div>
 {% endblock content %}
