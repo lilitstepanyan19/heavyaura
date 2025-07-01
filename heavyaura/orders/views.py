@@ -18,12 +18,12 @@ def create_order(request):
                                          quantity=item['quantity'])
             
             cart.clear()
-            return render(request, 'order/created.html', 
+            return render(request, 'orders/created.html', 
                 {'order' : order,
                  'form' : form}
             )
     else:
         form = OrderCreatedForm(request=request)
-    return render(request, 'order/created.html', 
-                {'order' : order,
+    return render(request, 'orders/create.html', 
+                {
                  'form' : form})
