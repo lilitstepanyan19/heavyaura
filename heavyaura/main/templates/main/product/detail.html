@@ -23,7 +23,7 @@
             {% else %}
                 <p class="price">Price: {{product.price}}</p>
             {% endif %}
-            <form action="{% url "cart:cart_add" product_id %}" class="qform" method="post">
+            <form action="{% url "cart:cart_add" product.id %}" class="qform" method="post">
                 <div class="cart_form">
                     {{ cart_product_form }}
                     {% csrf_token %}
