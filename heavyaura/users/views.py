@@ -16,12 +16,10 @@ def login(request):
             password = request.POST['password']
             user = auth.authenticate(username=username, password=password)
 
-            session_key = request.session.session_key
-
             if user:
                 auth.login(request, user)
                 messages.success(request, f"{username}, Вы вошли в аккаунт")
-                return HttpResponseRedirect(reverse('main:detail'))
+                return HttpResponseRedirect(reverse('main:product'))
     else:
         form = UserLoginForm()
 
@@ -40,7 +38,7 @@ def profile(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Profile was changed")
-            return HttpResponseRedirect(reverse('user:profile'))
+            return HttpResponseRedirect(reverse('users:profile'))
     else:
         form = ProfileForm(instance=request.user)
 
@@ -73,7 +71,7 @@ def registration(request):
             user = form.instance
             auth.login(request, user)
             messages.success(request, f"{user.username}, Successful registration")
-            return HttpResponseRedirect(reverse('user:login'))
+            return HttpResponseRedirect(reverse('users:login'))
     else:
         form = UserRegistrationForm()
     
